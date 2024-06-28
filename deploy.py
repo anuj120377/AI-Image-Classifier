@@ -4,10 +4,11 @@ from tensorflow import keras
 import numpy as np
 from PIL import Image, ImageOps
 from tensorflow.keras.preprocessing.image import load_img, img_to_array
+from tensorflow.keras.initializers import glorot_uniform
 
 img_size = 48
 
-model = tf.keras.models.load_model("AIGeneratedModel.h5")
+model = tf.keras.models.load_model("AIGeneratedModel.h5", custom_objects={'GlorotUniform': glorot_uniform()})
 
 st.title("AI Image Classifier")       
         
