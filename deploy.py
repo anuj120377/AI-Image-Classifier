@@ -10,6 +10,10 @@ img_size = 48
 
 model = tf.keras.models.load_model("AIGeneratedModel.h5", custom_objects={'GlorotUniform': glorot_uniform()})
 
+model.save("AIGeneratedModel_savedmodel", save_format="tf")
+model = tf.keras.models.load_model("AIGeneratedModel_savedmodel")
+
+
 st.title("AI Image Classifier")       
         
 img = st.file_uploader("Upload your Image")
